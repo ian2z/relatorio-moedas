@@ -1,5 +1,5 @@
 import requests #biblioteca em python que permite realizar requisições de APIs
-from datetime import datetime #bilioteca usada para calcular o tempo de log
+from datetime import datetime #bilioteca usada para calcular o tempo de lo
 
 def get_json(url): #função que realiza uma requisição GET, através de uma URL, e também os erros gerados pela mesma requisição
     try:
@@ -26,3 +26,4 @@ print("debugando")
 #print(get_historico_bitcoin())
 #print(get_cotacoes())
 print(get_taxa_selic())
+print("teste debug api LINHA 2")
