@@ -52,7 +52,7 @@ Contém as URLs para coletar:
 Funções que interagem com APIs:
 - `getCotacoes()`: busca cotação atual
 - `getHistoricoBTC()`: busca histórico de 30 dias
-- `get_taxa_selic()`: coleta dados da SELIC
+- `getTaxaSelic()`: coleta dados da SELIC
 - Funções de formatação para transformar JSON em listas para o Excel
 
 ### `utils/excel_writer.py`
