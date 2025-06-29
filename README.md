@@ -51,7 +51,7 @@ Contém as URLs para coletar:
 ### `services/api_client.py`
 Funções que interagem com APIs:
 - `getCotacoes()`: busca cotação atual
-- `get_historico_moeda(moeda)`: busca histórico de 30 dias
+- `getHistoricoBTC()`: busca histórico de 30 dias
 - `get_taxa_selic()`: coleta dados da SELIC
 - Funções de formatação para transformar JSON em listas para o Excel
 
@@ -61,15 +61,7 @@ Geração do Excel com `openpyxl`:
 - Cabeçalhos em negrito, números com 2 casas decimais
 
 ### `utils/logger.py`
-- `gerar_log()`: cria registro de execução para salvar no Excel
-
----
-
-## 🔧 Como adicionar mais moedas
-
-1. Adicione a moeda nas URLs do `config.py`
-2. Use `get_historico_moeda("EUR")` no `main.py`
-3. Formate e inclua nos dados para o Excel
+- `gerarLog()`: cria registro de execução para salvar no Excel
 
 ---
 
