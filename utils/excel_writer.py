@@ -32,6 +32,7 @@ def criarArquivo (cotacoes, historico, selic, log):
             #aba.column_dimensions[letraColuna].auto_size = True
             aba.column_dimensions[letraColuna].width = 15
 
+    # Aba 1 (principal): Resumo atual do Dólar, Euro e Bitcoin em relação ao Real
     ws_resumo = arquivo.active
     ws_resumo.title = "Resumo Atual"
     formatarAba(ws_resumo, cotacoes)
@@ -44,11 +45,11 @@ def criarArquivo (cotacoes, historico, selic, log):
     ws_selic = arquivo.create_sheet("Selic")
     formatarAba(ws_selic, selic)
 
-    # Aba 4: Log de Execução
+    # Aba 4: Log de Execução (data registrada + mensagem de execução)
     ws_log = arquivo.create_sheet("Log de Execução")
     formatarAba(ws_log, log)
 
-    # Salvar o arquivo
+    # Salvaando o arquivo
     data_hora = datetime.now().strftime("%Y%m%d_%H%M%S")
     arquivo.save(f"relatorio_{data_hora}.xlsx")
     print("[✓] Relatório salvo com sucesso!")

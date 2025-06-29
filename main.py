@@ -14,20 +14,20 @@ def main():
     try:
         print("[*] Iniciando coleta de dados...")
 
-        # 1. Coleta de dados
+        #Coleta de dados das APIs
         cotacoes_json = getCotacoes()
         historico_btc_json = getHistoricoBitcoin()
         selic_json = getTaxaSelic()
 
         print("[✓] Dados coletados com sucesso!")
 
-        # 2. Formatação dos dados
+        #Formatação dos dados usando as funções de array
         cotacoesFormatadas = cotacoes(cotacoes_json)
         historicoBTCFormatado = historicoBTC(historico_btc_json)
         selicFormatada = selic(selic_json)
         log_gerado = gerarLog("Coleta realizada com sucesso")
 
-        # 3. Gerar Excel
+        #Gerar Excel através do openpyxl
         criarArquivo(
             cotacoes=cotacoesFormatadas,
             historico=historicoBTCFormatado,
@@ -37,6 +37,7 @@ def main():
 
         print("[✓] Relatório Excel gerado com sucesso!")
 
+    #Tratamento de erros caso o arquivo não possa ser gerado. Também verifica se o log foi criado
     except Exception as e:
         print("[X] Erro durante a execução:", e)
         log_erro = gerarLog(f"Erro na execução: {e}")

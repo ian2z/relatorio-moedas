@@ -1,5 +1,5 @@
-import requests #biblioteca em python que permite realizar requisições de APIs
-from datetime import datetime #bilioteca de tempo para registrar os logs
+import requests
+from datetime import datetime
 
 def getJson(url): #função que realiza uma requisição GET, através de uma URL, e também os erros gerados pela mesma requisição
     try:
@@ -52,7 +52,7 @@ def historicoBTC(json_historico):
         historicoBTC.append(registro)
     return historicoBTC
 
-#esta API já retorna um array com os dados fornecidos, e usaremos todos eles, portanto, não há necessidade dela, mas por motivo de um futuro tratamento ou troca de API, ela foi criada.
+#esta API já retorna um array com os dados fornecidos, e usaremos todos eles, portanto, não há necessidade dela. Por motivo de uma futura alteração ou troca de API, ela foi criada.
 def selic(json_selic):
     historicoSelic = []
     for item in json_selic:
