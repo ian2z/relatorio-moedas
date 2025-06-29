@@ -36,12 +36,12 @@ def criarArquivo (cotacoes, historico, selic, log):
     ws_resumo.title = "Resumo Atual"
     formatarAba(ws_resumo, cotacoes)
 
-    # Aba 2: Histórico 30 dias (apenas USD por enquanto, ou adapte)
+    # Aba 2: Histórico 30 dias do BTC
     ws_hist = arquivo.create_sheet("Histórico 30 dias")
     formatarAba(ws_hist, historico)
 
-    # Aba 3: Taxas de Juros
-    ws_selic = arquivo.create_sheet("Taxas de Juros")
+    # Aba 3: Data da pesquisa + porcetagem da Selic
+    ws_selic = arquivo.create_sheet("Selic")
     formatarAba(ws_selic, selic)
 
     # Aba 4: Log de Execução
@@ -51,4 +51,4 @@ def criarArquivo (cotacoes, historico, selic, log):
     # Salvar o arquivo
     data_hora = datetime.now().strftime("%Y%m%d_%H%M%S")
     arquivo.save(f"relatorio_{data_hora}.xlsx")
-    print(f"[✓] Relatório salvo com sucesso!")
+    print("[✓] Relatório salvo com sucesso!")

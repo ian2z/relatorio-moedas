@@ -27,14 +27,14 @@ def cotacoes(json_cotacoes):
     cotacoes = []
     for chave, dados in json_cotacoes.items():
         registro = {
-            "moeda": dados["code"],
-            "nome": dados["name"],
+            "Moeda": dados["code"],
+            "Nome": dados["name"],
             "data_hora": datetime.fromtimestamp(int(dados["timestamp"])).strftime("%d/%m/%Y %H:%M:%S"),
-            "alta": float(dados["high"]),
-            "baixa": float(dados["low"]),
-            "compra": float(dados["bid"]),
-            "venda": float(dados["ask"]),
-            "variacao (%)": float(dados["pctChange"])
+            "Alta": float(dados["high"]),
+            "Baixa": float(dados["low"]),
+            "Compra": float(dados["bid"]),
+            "Venda": float(dados["ask"]),
+            "Variacao (%)": float(dados["pctChange"])
         }
         cotacoes.append(registro)
     return cotacoes
@@ -44,10 +44,10 @@ def historicoBTC(json_historico):
     for item in json_historico:
         registro = {
             "data_hora": (datetime.fromtimestamp(int(item["timestamp"]))).strftime("%d/%m/%Y %H:%M:%S"),
-            "high": float(item["high"]),
-            "low": float(item["low"]),
-            "bid": float(item["bid"]),
-            "ask": float(item["ask"])
+            "Alta": float(item["high"]),
+            "Baixa": float(item["low"]),
+            "Compra": float(item["bid"]),
+            "Venda": float(item["ask"])
         }
         historicoBTC.append(registro)
     return historicoBTC
@@ -57,8 +57,8 @@ def selic(json_selic):
     historicoSelic = []
     for item in json_selic:
         registro = {
-            "data": str(item["data"]),
-            "valor": float(item["valor"])
+            "Data": str(item["data"]),
+            "Valor": float(item["valor"])
         }
     historicoSelic.append(registro)
     return historicoSelic
