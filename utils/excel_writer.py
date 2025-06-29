@@ -7,27 +7,30 @@ def criarArquivo (cotacoes, historico, selic, log):
     arquivo = Workbook()
 
     def formatarAba(aba, dados):
+        if not dados:
+            return None
+
         fonteNegrito = Font(bold=True)
         numeroEstilo = NamedStyle(name="numeroEstilo", number_format="0.00") #Variavel para setar pontos flutuantes em ate duas casas
 
         #Criando os cabeçalhos dos arquivos
-        for indexColuna, coluna in enumerate(dados[0].keys, start=1):
-            cell = aba.cell(roll = 1, column = indexColuna, value = coluna)
+        for indexColuna, coluna in enumerate(dados[0].keys(), start=1):
+            cell = aba.cell(row = 1, column = indexColuna, value = coluna)
             cell.font = fonteNegrito
             cell.alignment = Alignment(horizontal = "center")
 
         #Criando as linhas de dados
         for indexLinha, itens in enumerate(dados, start=2):
             for indexColuna, valor in enumerate(itens.values(), start=1):
-                cell = aba.cell(row = indexLinha, collunm = indexColuna, value = valor)
+                cell = aba.cell(row = indexLinha, column = indexColuna, value = valor)
                 if isinstance(valor, (int, float)):
                     cell.style = numeroEstilo
 
         #Ajustando a largura das colunas
         for indexColuna in range(1, len(dados[0])+1):
             letraColuna = get_column_letter(indexColuna)
-            aba.column_dimensions[letraColuna].auto_size = True
-
+            #aba.column_dimensions[letraColuna].auto_size = True
+            aba.column_dimensions[letraColuna].width = 15
 
     ws_resumo = arquivo.active
     ws_resumo.title = "Resumo Atual"
@@ -48,5 +51,4 @@ def criarArquivo (cotacoes, historico, selic, log):
     # Salvar o arquivo
     data_hora = datetime.now().strftime("%Y%m%d_%H%M%S")
     arquivo.save(f"relatorio_{data_hora}.xlsx")
-
-criarArquivo()
+    print(f"[✓] Relatório salvo com sucesso!")

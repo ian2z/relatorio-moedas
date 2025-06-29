@@ -23,7 +23,7 @@ def getTaxaSelic():
     return getJson(url)
 
 #Criando funções que retornam os arquivos .json formatados em arrays
-def formatarCotacoes(json_cotacoes):
+def cotacoes(json_cotacoes):
     cotacoes = []
     for chave, dados in json_cotacoes.items():
         registro = {
@@ -39,7 +39,7 @@ def formatarCotacoes(json_cotacoes):
         cotacoes.append(registro)
     return cotacoes
 
-def formatarHistorico(json_historico):
+def historicoBTC(json_historico):
     historicoBTC = []
     for item in json_historico:
         registro = {
@@ -53,7 +53,7 @@ def formatarHistorico(json_historico):
     return historicoBTC
 
 #esta API já retorna um array com os dados fornecidos, e usaremos todos eles, portanto, não há necessidade dela, mas por motivo de um futuro tratamento ou troca de API, ela foi criada.
-def formatarSelic(json_selic):
+def selic(json_selic):
     historicoSelic = []
     for item in json_selic:
         registro = {
